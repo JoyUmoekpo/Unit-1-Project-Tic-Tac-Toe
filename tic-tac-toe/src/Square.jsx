@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const Square = () => {
-  return (
-    <div className='square'>square</div>
-  )
-}
+const Square = (props) => {
+	return <div className="square">{props.propVar}</div>;
+};
 
-export default Square
+export default Square;
