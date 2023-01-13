@@ -8,15 +8,26 @@ function App() {
 	const [squares, setSquares] = useState(["", "", "", "", "", "", "", "", ""]);
 	const [player, setPlayer] = useState(true);
 
+	const handleClick = () =>{
+		setSquares(["", "", "", "", "", "", "", "", ""])
+    setPlayer(true)
+	}
+
 	return (
 		<div className="App">
-			<Square propVar={string} />
-			<Square
-				squares={squares}
-				setSquares={setSquares}
-				player={player}
-				setPlayer={setPlayer}
-			/>
+			<div className="container">
+				{squares.map((value, index) => {
+					<Square
+						squares={squares}
+						setSquares={setSquares}
+						index={index}
+						squareValue={value}
+						player={player}
+						setPlayer={setPlayer}
+					/>;
+				})}
+			</div>
+			<button onClick={handleClick}>Reset</button>
 		</div>
 	);
 }
