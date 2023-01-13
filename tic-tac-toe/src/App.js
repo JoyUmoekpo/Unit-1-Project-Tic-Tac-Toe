@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
+import "./App.css";
 import { useState } from "react";
 import Square from "./Square";
-import "./App.css";
 
 function App() {
 	const [squares, setSquares] = useState(["", "", "", "", "", "", "", "", ""]);
@@ -41,14 +41,16 @@ function App() {
 			<span>{calculateWinner(squares)}</span>
 			<div className="container">
 				{squares.map((val, index) => {
-					<Square
-						squares={squares}
-						setSquares={setSquares}
-						index={index}
-						squareValue={val}
-						player={player}
-						setPlayer={setPlayer}
-					/>;
+					return (
+						<Square
+							setSquares={setSquares}
+							index={index}
+							squareValue={val}
+							squares={squares}
+							player={player}
+							setPlayer={setPlayer}
+						/>
+					);
 				})}
 			</div>
 			<button onClick={handleClick}>Reset</button>
